@@ -4,18 +4,18 @@ import { songs } from "./song.js";
 
 // loading function
 window.onload = () => {
-  document.querySelector('.controls').style.display='none';
-  document.querySelector('.controls').style.visibility='none';
+  document.querySelector('.controls').style.display = 'none';
+  document.querySelector('.controls').style.visibility = 'none';
   setTimeout(() => {
     document.querySelector('.load').style.display = 'none';
-    document.querySelector('.controls').style.display='flex';
-    document.querySelector('.controls').style.visibility='visible';
-  },99);
+    document.querySelector('.controls').style.display = 'flex';
+    document.querySelector('.controls').style.visibility = 'visible';
+  }, 99);
 }
 // when document loads
 document.addEventListener("DOMContentLoaded", () => {
   console.warn(' WELCOME TO SMALL SPOTIFY');
-  
+
   //  Select DOM Elements
   //  DECLARE VARIABLES 
   let songIndex = 0; //this var will update when  click events triggered
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //MAKING DEFAULT INITIALIZATION
   masterSongName.innerHTML = songs[0].songName; //show the  default song name
   masterSongImg.src = songs[0].coverPath;//show the  default song image
-  
+
   //creating song by importing each song from an array of objects 
   songs.forEach((item, index) => {
     let songItem = `
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (audioElem.paused || audioElem.currentTime <= 0) { //checking the audio is playing or not
       //if not play the audio
       audioElem.play();
-      
+
       masterPlay.src = './assets/svg/circle-pause-regular.svg'; //change the play icon to pause icon
       masterSongName.innerHTML = songs[songIndex].songName;
       masterSongImg.src = songs[songIndex].coverPath;
@@ -122,13 +122,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const makeAllPlay = () => {
     songPlay.forEach((e) => {
       //updated after the video
-      if(audioElem.played){
-        e.src='./assets/svg/circle-play-regular.svg'
-      }else{
-        
-        e.src='./assets/svg/circle-pause-regular.svg'
+      if (audioElem.played) {
+        e.src = './assets/svg/circle-play-regular.svg'
+      } else {
+
+        e.src = './assets/svg/circle-pause-regular.svg'
       }
-      
+
     })
   }
   //for making play the song from the list 
@@ -231,24 +231,24 @@ document.addEventListener("DOMContentLoaded", () => {
       soundImg.src = './assets/svg/volume-xmark-solid.svg'
     }
   }
-  soundBar.addEventListener('input', ()=>{ //watch changes in audio bar
-    
-    audioElem.volume=soundBar.value;
+  soundBar.addEventListener('input', () => { //watch changes in audio bar
+
+    audioElem.volume = soundBar.value;
     volumeEvent();
   })
   // Volume Up Function
   const volumeUp = () => {
-    audioElem.volume=soundBar.value;
+    audioElem.volume = soundBar.value;
     if (audioElem.volume < 1) {  // Check if the volume is less than 1
       audioElem.volume = Math.min(audioElem.volume + 0.1, 1);  // Increase the volume by 0.1 but not exceeding 1
       soundBar.value = audioElem.volume;  // Update the volume bar
       volumeEvent();  // call volume change
     }
   }
-  
+
   // Volume Down Function
   const volumeDown = () => {
-    audioElem.volume=soundBar.value;
+    audioElem.volume = soundBar.value;
     if (audioElem.volume > 0) {  // Check if the volume is greater than 0
       audioElem.volume = Math.max(audioElem.volume - 0.1, 0);  // Decrease the volume by 0.1 but not going below 0
       soundBar.value = audioElem.volume;  // Update the volume bar
@@ -283,16 +283,13 @@ document.addEventListener("DOMContentLoaded", () => {
     playCurrentSong();
   }
 
-   //if a songs end will go to next song
-   audioElem.addEventListener('ended',()=>{
+  //if a songs end will go to next song
+  audioElem.addEventListener('ended', () => {
     nextSong();
-   })
+  })
 
 
-
-
-
-
+  
 
 
 })
