@@ -314,7 +314,7 @@ header ul li a:hover {
   margin-top: 18px;
   cursor: default;
 }
-.master-song-controls .song-btn {
+.master-song-controls .song-btn { 
   height: 25px;
   width: 25px;
   margin: 0 5px;

@@ -196,5 +196,4 @@ export const songs = [
     artist: "ankit tiwari",
   },
 
-
 ];
